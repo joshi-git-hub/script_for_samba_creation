@@ -1,0 +1,8 @@
+################################################
+###############SAMBA SERVER##################
+Hi I am Ganesh. I am curious about to learn 
+new Technology.
+this file is basically i am making for 
+creating samba server remotly in 
+another system with only one click.
+

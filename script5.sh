@@ -5,14 +5,16 @@ systemctl start smb
 systemctl enable smb
 firewall-cmd --permanent --add-service=samba
 firewall-cmd --reload
-mkdir /nokia
-touch /nokia/qwer{1..9}
-chcon -R -t samba_share_t /nokia
+read -e "Please give the directory name, which has to be shared:- " dir
+mkdir /$dir
+touch /$dir/qwer{1..9}
+chcon -R -t samba_share_t /$dir
 systemctl restart smb
+read -e "Please give the Samba shared point name:-" dc
 cat << eof  >> /etc/samba/smb.conf
-[gdc]
+[$dc]
 comment=this is samba server installation for all
-path=/nokia
+path=/$dir
 public=yes
 writable=no
 browseable=yes
